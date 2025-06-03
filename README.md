@@ -42,6 +42,13 @@
   - [x] Return 204 No Content
 
 ### 🕒 Hour 3: Review & Refactor
+- [ ] Build the Notes CLI
+  - [ ] Flags package
+  - [ ] error handling
+- [ ] Publish via Goreleaser
+  - [ ] Configure Goreleaser
+
+### 🕒 Hour 3: Review & Refactor
 - [x] Clean up code structure (handlers, error messages)
 - [x] Write a reflection note in Obsidian:
   - What did I remember easily?

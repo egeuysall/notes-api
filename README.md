@@ -21,10 +21,10 @@
 ## ⏱️ Schedule (3 Hours)
 
 ### 🕒 Hour 1: Recall Drill – No Copying
-- [ ] Write `main.go` with `chi.NewRouter`
-- [ ] Create `GET /ping` route
-- [ ] Respond with JSON manually: `json.NewEncoder(w).Encode(...)`
-- [ ] Set correct headers/status codes
+- [x] Write `main.go` with `chi.NewRouter`
+- [x] Create `GET /ping` route
+- [x] Respond with JSON manually: `json.NewEncoder(w).Encode(...)`
+- [x] Set correct headers/status codes
 
 ### 🕒 Hour 2: Build Note API
 - [ ] Add `POST /note`
@@ -35,11 +35,16 @@
 - [ ] Add `GET /note/{id}`
   - [ ] Get param with `chi.URLParam`
   - [ ] Lookup in map, return value or 404
+- [ ] Add `DELETE /note/{id}`
+  - [ ] Get param with `chi.URLParam`
+  - [ ] Check if note exists
+  - [ ] Delete from map
+  - [ ] Return 204 No Content
 
 ### 🕒 Hour 3: Review & Refactor
 - [ ] Clean up code structure (handlers, error messages)
-- [ ] Write a reflection note in Obsidian:
+- [x] Write a reflection note in Obsidian:
   - What did I remember easily?
   - What did I forget?
   - Any confusing areas?
-- [ ] Save code to `~/go-snippets/notes-api`
+- [x] Save code to `~/go-snippets/notes-api`

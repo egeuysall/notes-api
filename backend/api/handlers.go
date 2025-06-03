@@ -7,6 +7,7 @@ import (
 
 // Handle the root route to welcome users
 func handleRoot(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
 	response := map[string]string{
 		"message": "Welcome to Notes API v1. Available routes: POST /v1/note, GET /v1/note/{id}, DELETE /v1/note/{id}",
 	}
@@ -24,6 +25,7 @@ func handleRoot(w http.ResponseWriter, r *http.Request) {
 
 // Handle the ping route to check if the server is alive
 func checkPing(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
 	response := map[string]string{
 		"status": "pong",
 	}

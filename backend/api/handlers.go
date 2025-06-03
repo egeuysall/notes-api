@@ -3,53 +3,70 @@ package api
 import (
 	"encoding/json"
 	"net/http"
+
+	"github.com/go-chi/chi/v5"
+	"github.com/google/uuid"
 )
 
-// Handle the root route to welcome users
-func handleRoot(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusOK)
-	response := map[string]string{
-		"message": "Welcome to Notes API v1. Available routes: POST /v1/note, GET /v1/note/{id}, DELETE /v1/note/{id}",
-	}
+var notes = make(map[string]string)
 
-	err := json.NewEncoder(w).Encode(response)
-	if err != nil {
-		errorResponse := map[string]string{
-			"error": err.Error(),
-		}
-		w.WriteHeader(http.StatusInternalServerError)
-		json.NewEncoder(w).Encode(errorResponse)
-		return
+func handleRoot(w http.ResponseWriter, r *http.Request) {
+	response := map[string]string{
+		"message": "Welcome to Notes API v1. Available routes: POST /v1/notes, GET /v1/notes, GET /v1/notes/{id}, DELETE /v1/notes/{id}, GET /ping",
 	}
+	SendJson(w, response, http.StatusOK)
 }
 
-// Handle the ping route to check if the server is alive
 func checkPing(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusOK)
-	response := map[string]string{
-		"status": "pong",
-	}
-
-	err := json.NewEncoder(w).Encode(response)
-
-	if err != nil {
-		errorResponse := map[string]string{
-			"error": err.Error(),
-		}
-		w.WriteHeader(http.StatusInternalServerError)
-		json.NewEncoder(w).Encode(errorResponse)
-		return
-	}
+	SendJson(w, map[string]string{"status": "pong"}, http.StatusOK)
 }
 
 func createNote(w http.ResponseWriter, r *http.Request) {
+	var note string
+	err := json.NewDecoder(r.Body).Decode(&note)
+	
+	if err != nil {
+		SendError(w, "Invalid JSON payload", http.StatusBadRequest)
+		return
+	}
 
+	id := uuid.New().String()
+	notes[id] = note
+
+	response := map[string]interface{}{
+		"notes": []Note{{Id: id, Note: note}},
+	}
+	SendJson(w, response, http.StatusCreated)
 }
 
 func getNote(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+	if id == "" {
+		SendError(w, "Missing note ID", http.StatusBadRequest)
+		return
+	}
 
+	note, exists := notes[id]
+	if !exists {
+		SendError(w, "Note not found", http.StatusNotFound)
+		return
+	}
+
+	SendJson(w, Note{Id: id, Note: note}, http.StatusOK)
 }
 
 func deleteNote(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+	if id == "" {
+		SendError(w, "Missing note ID", http.StatusBadRequest)
+		return
+	}
 
+	if _, exists := notes[id]; !exists {
+		SendError(w, "Note not found", http.StatusNotFound)
+		return
+	}
+
+	delete(notes, id)
+	w.WriteHeader(http.StatusNoContent)
 }

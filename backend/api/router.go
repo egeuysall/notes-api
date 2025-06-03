@@ -30,11 +30,11 @@ func NewRouter() *chi.Mux {
 	r.Get("/ping", checkPing)
 
 	r.Route("/v1", func(r chi.Router) {
-		r.Post("/note", createNote)
+		r.Post("/notes", createNote)
 		r.Group(func(r chi.Router) {
 			r.Use(appmid.Auth())
-			r.Get("/note/{id}", getNote)
-			r.Delete("/note/{id}", deleteNote)
+			r.Get("/notes/{id}", getNote)
+			r.Delete("/notes/{id}", deleteNote)
 		})
 	})
 

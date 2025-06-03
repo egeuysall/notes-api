@@ -27,22 +27,22 @@
 - [x] Set correct headers/status codes
 
 ### 🕒 Hour 2: Build Note API
-- [ ] Add `POST /note`
-  - [ ] Decode JSON body into struct
-  - [ ] Generate random ID
-  - [ ] Store in map
-  - [ ] Respond with ID in JSON
-- [ ] Add `GET /note/{id}`
-  - [ ] Get param with `chi.URLParam`
-  - [ ] Lookup in map, return value or 404
-- [ ] Add `DELETE /note/{id}`
-  - [ ] Get param with `chi.URLParam`
-  - [ ] Check if note exists
-  - [ ] Delete from map
-  - [ ] Return 204 No Content
+- [x] Add `POST /note`
+  - [x] Decode JSON body into struct
+  - [x] Generate random ID
+  - [x] Store in map
+  - [x] Respond with ID in JSON
+- [x] Add `GET /note/{id}`
+  - [x] Get param with `chi.URLParam`
+  - [x] Lookup in map, return value or 404
+- [x] Add `DELETE /note/{id}`
+  - [x] Get param with `chi.URLParam`
+  - [x] Check if note exists
+  - [x] Delete from map
+  - [x] Return 204 No Content
 
 ### 🕒 Hour 3: Review & Refactor
-- [ ] Clean up code structure (handlers, error messages)
+- [x] Clean up code structure (handlers, error messages)
 - [x] Write a reflection note in Obsidian:
   - What did I remember easily?
   - What did I forget?

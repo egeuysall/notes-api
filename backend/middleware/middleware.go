@@ -11,8 +11,8 @@ import (
 // Create CORS middleware
 func Cors() func(next http.Handler) http.Handler {
     return cors.Handler(cors.Options{
-        AllowedOrigins:   []string{"https://www.notes.egeuysal.com"},
-        AllowedMethods:   []string{"GET", "POST", "OPTIONS"},
+        AllowedOrigins:   []string{"https://www.notes.egeuysal.com", "http://localhost:8080"},
+        AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
         AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
         AllowCredentials: true,
         MaxAge:           3600,

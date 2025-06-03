@@ -10,8 +10,8 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-ARG NEXT_PUBLIC_REST_API_KEY
-ENV NEXT_PUBLIC_REST_API_KEY=$NEXT_PUBLIC_REST_API_KEY
+ARG API_KEY
+ENV API_KEY=$API_KEY
 RUN pnpm build
 
 FROM base AS runner

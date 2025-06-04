@@ -1,6 +1,0 @@
-4629bd05dda0921b6c5c6826d82c3a01c33e215f208cbf0fcb0c63cee1423210  notes-api_1.0.0_darwin_amd64.tar.gz
-8f1dfd329e2f2157accca6b104595ca7b1e8a4ea9e2aba5da7ad57118598e479  notes-api_1.0.0_darwin_arm64.tar.gz
-802ce5f6c22f9bd1debe7d7ec3e3fa357142dee291345a8ec8943c85817ea13d  notes-api_1.0.0_linux_amd64.tar.gz
-c729e54ae772a4b7b78d4b09eb1278f8c8a56fa34def52ce49ee6910d084b6df  notes-api_1.0.0_linux_arm64.tar.gz
-d30b120c2087b7e2d54def77aaa34445b3909521468f122d12ebafe3a0163872  notes-api_1.0.0_windows_amd64.tar.gz
-20a3798502e768ecd56075a0615fc61bdf4f23a21f0aa489da4f2c6ac51756cb  notes-api_1.0.0_windows_arm64.tar.gz

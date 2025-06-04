@@ -24,7 +24,7 @@ func usage() {
 func postNote(note string) {
 	quoted := fmt.Sprintf("%q", note)
 
-	req, err := http.NewRequest("POST", "http://localhost:8080/v1/notes", bytes.NewBufferString(quoted))
+	req, err := http.NewRequest("POST", "https://notesapi.egeuysal.com/v1/notes", bytes.NewBufferString(quoted))
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error creating POST request: %v\n", err)
 		os.Exit(1)
@@ -55,11 +55,11 @@ func postNote(note string) {
 		os.Exit(1)
 	}
 
-	fmt.Printf("Your note is posted on http://localhost:3000/notes/%s\n", result.Notes[0].ID)
+	fmt.Printf("Your note is posted on https://www.notes.egeuysal.com/notes/%s\n", result.Notes[0].ID)
 }
 
 func getNote(id string) {
-	url := fmt.Sprintf("http://localhost:8080/v1/notes/%s", id)
+	url := fmt.Sprintf("https://notesapi.egeuysal.com/v1/notes/%s", id)
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error creating GET request: %v\n", err)
@@ -90,7 +90,7 @@ func getNote(id string) {
 }
 
 func deleteNote(id string) {
-	req, err := http.NewRequest("DELETE", fmt.Sprintf("http://localhost:8080/v1/notes/%s", id), nil)
+	req, err := http.NewRequest("DELETE", fmt.Sprintf("https://notesapi.egeuysal.com/v1/notes/%s", id), nil)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error creating DELETE request: %v\n", err)
 		os.Exit(1)

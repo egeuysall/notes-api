@@ -12,7 +12,7 @@ export default async function Home({
 
   try {
     const response = await fetch(
-      `http://localhost:8080/v1/notes/${encodeURIComponent(id)}`,
+      `https://www.notes.egeuysal.com/v1/notes/${encodeURIComponent(id)}`,
       {
         method: "GET",
         headers: {

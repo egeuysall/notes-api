@@ -1,0 +1,42 @@
+version: 2
+
+before:
+  hooks:
+    - cd backend && go mod tidy
+    - cd backend && go generate ./...
+
+builds:
+  - id: notes
+    dir: ./backend
+    main: ./cmd/client/main.go
+    binary: notes
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+
+archives:
+  - id: default
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    format: tar.gz
+    wrap_in_directory: true
+    files:
+      - LICENSE
+      - README.md
+
+release:
+  github:
+    owner: egeuysall
+    name: notes-api
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"

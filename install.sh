@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-VERSION="1.1.0"
+VERSION=$(curl -s https://api.github.com/repos/egeuysall/notes-api/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/v//')
 REPO="egeuysall/notes-api"
 TMPDIR=$(mktemp -d)
 

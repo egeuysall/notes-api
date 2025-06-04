@@ -15,7 +15,7 @@ export default function Error({
 
   return (
     <main className="flex items-center justify-center h-screen">
-      <section className="flex flex-col items-center gap-4 w-[90vw] rounded-lg bg-neutral-900 p-6 min-h-72 text-center">
+      <section className="flex flex-col items-center justify-center gap-4 w-[90vw] rounded-lg bg-neutral-900 p-6 min-h-72 text-center">
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">
           Something went wrong
         </h1>

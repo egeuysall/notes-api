@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-VERSION=$(curl -s https://api.github.com/repos/egeuysall/notes-api/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/v//')
+VERSION="1.1.0"
 REPO="egeuysall/notes-api"
 TMPDIR=$(mktemp -d)
 
@@ -102,11 +102,11 @@ echo "🔍 First entry in archive: $FIRST_ENTRY"
 if echo "$FIRST_ENTRY" | grep -q "/"; then
   # Archive contains directories
   EXTRACTED_DIR=$(echo "$FIRST_ENTRY" | cut -f1 -d"/")
-  BINARY_PATH="$TMPDIR/$EXTRACTED_DIR/notes-api"
+  BINARY_PATH="$TMPDIR/$EXTRACTED_DIR/notes"
 else
   # Archive contains files directly
   EXTRACTED_DIR=""
-  BINARY_PATH="$TMPDIR/notes-api"
+  BINARY_PATH="$TMPDIR/notes"
 fi
 
 echo "🔍 Looking for binary at: $BINARY_PATH"
@@ -122,8 +122,8 @@ if [ ! -f "$BINARY_PATH" ]; then
   fi
   
   # Try to find the binary anywhere in the temp directory
-  echo "🔍 Searching for 'notes-api' binary in temp directory..."
-  find "$TMPDIR" -name "notes-api" -type f 2>/dev/null || echo "No 'notes-api' binary found"
+  echo "🔍 Searching for 'notes' binary in temp directory..."
+  find "$TMPDIR" -name "notes" -type f 2>/dev/null || echo "No 'notes' binary found"
   exit 1
 fi
 
@@ -140,7 +140,7 @@ if ! chmod +x "$BINARY_PATH"; then
 fi
 
 # Move binary to installation directory
-if ! mv "$BINARY_PATH" "$USER_BIN/notes-api"; then
+if ! mv "$BINARY_PATH" "$USER_BIN/notes"; then
   echo "❌ Failed to move binary to $USER_BIN"
   exit 1
 fi
@@ -171,12 +171,12 @@ esac
 echo "✅ Installation complete!"
 
 # Verify installation
-if command -v notes-api >/dev/null 2>&1; then
-  echo "🎉 Success! 'notes-api' is now available in your PATH"
+if command -v notes >/dev/null 2>&1; then
+  echo "🎉 Success! 'notes' is now available in your PATH"
   echo "📋 Version info:"
-  notes-api --version
+  notes --version
 else
-  echo "⚠️  'notes-api' is installed but not in your current PATH"
-  echo "You can run it directly with: $USER_BIN/notes-api --version"
+  echo "⚠️  'notes' is installed but not in your current PATH"
+  echo "You can run it directly with: $USER_BIN/notes --version"
   echo "Or add $USER_BIN to your PATH as shown above"
 fi

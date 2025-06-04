@@ -1,8 +1,12 @@
 import React from "react";
 import { notFound } from "next/navigation";
 
-export default async function Home({ params }: { params: { id: string } }) {
-  const { id } = params;
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
 
   let note: { id: string; note: string } | null = null;
 
@@ -43,9 +47,7 @@ export default async function Home({ params }: { params: { id: string } }) {
             <strong>ID:</strong> {note.id}
           </p>
         </section>
-        <p className="text-center line-clamp-4 max-w-xl break-words">
-          {note.note}
-        </p>
+        <p className="text-center line-clamp-8 break-words">{note.note}</p>
       </section>
     </main>
   );

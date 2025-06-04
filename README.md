@@ -2,15 +2,21 @@
 
 **Goal:** Build a minimal REST API with chi to lock in routing, JSON decoding, and error handling — all from memory.
 
+**To install, use:**
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/egeuysall/notes-api/master/install.sh | sh
+```
+
 ---
 
 ## ✅ Mini Project: Notes API (In-Memory)
 
-| Method | Route          | Description                              |
-|--------|----------------|------------------------------------------|
-| GET    | `/ping`        | Returns `{ "message": "pong" }`          |
-| POST   | `/note`        | Accepts `{ "text": "..." }`, returns ID  |
-| GET    | `/note/{id}`   | Returns note by ID or 404                |
+| Method | Route        | Description                             |
+| ------ | ------------ | --------------------------------------- |
+| GET    | `/ping`      | Returns `{ "message": "pong" }`         |
+| POST   | `/note`      | Accepts `{ "text": "..." }`, returns ID |
+| GET    | `/note/{id}` | Returns note by ID or 404               |
 
 - Use: `chi`, `json.NewDecoder`, `json.NewEncoder`, `http.Error`, `chi.URLParam`
 - Store data in: `map[string]string`
@@ -21,12 +27,14 @@
 ## ⏱️ Schedule (3 Hours)
 
 ### 🕒 Hour 1: Recall Drill – No Copying
+
 - [x] Write `main.go` with `chi.NewRouter`
 - [x] Create `GET /ping` route
 - [x] Respond with JSON manually: `json.NewEncoder(w).Encode(...)`
 - [x] Set correct headers/status codes
 
 ### 🕒 Hour 2: Build Note API
+
 - [x] Add `POST /note`
   - [x] Decode JSON body into struct
   - [x] Generate random ID
@@ -42,6 +50,7 @@
   - [x] Return 204 No Content
 
 ### 🕒 Hour 3: Review & Refactor
+
 - [x] Build the Notes CLI
   - [x] Flags package
   - [x] error handling
@@ -49,6 +58,7 @@
   - [x] Configure Goreleaser
 
 ### 🕒 Hour 3: Review & Refactor
+
 - [x] Clean up code structure (handlers, error messages)
 - [x] Write a reflection note in Obsidian:
   - What did I remember easily?

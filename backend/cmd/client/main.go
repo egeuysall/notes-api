@@ -115,16 +115,16 @@ func deleteNote(id string) {
 
 func main() {
 	var note string
-	var noteID string
+	var noteId string
 	var deleteFlag bool
 	var showVersion bool
-	var version string = "v1.0.0"
+	var version string = "v1.1.0"
 
 	flag.StringVar(&note, "n", "", "Add a note")
 	flag.StringVar(&note, "note", "", "Add a note")
 
-	flag.StringVar(&noteID, "i", "", "ID of the note to get or delete")
-	flag.StringVar(&noteID, "id", "", "ID of the note to get or delete")
+	flag.StringVar(&noteId, "i", "", "ID of the note to get or delete")
+	flag.StringVar(&noteId, "id", "", "ID of the note to get or delete")
 
 	flag.BoolVar(&deleteFlag, "d", false, "Delete the note with given ID")
 	flag.BoolVar(&deleteFlag, "delete", false, "Delete the note with given ID")
@@ -144,7 +144,7 @@ func main() {
 	if note != "" {
 		opsCount++
 	}
-	if noteID != "" {
+	if noteId != "" {
 		opsCount++
 	}
 
@@ -165,11 +165,11 @@ func main() {
 		return
 	}
 
-	if noteID != "" {
+	if noteId != "" {
 		if deleteFlag {
-			deleteNote(noteID)
+			deleteNote(noteId)
 		} else {
-			getNote(noteID)
+			getNote(noteId)
 		}
 		return
 	}

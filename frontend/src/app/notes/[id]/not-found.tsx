@@ -14,7 +14,7 @@ export default function NotFound() {
           href="/"
           className="mt-2 px-4 py-2 rounded-lg bg-white text-black"
         >
-          <button>Back to Home</button>
+          <button className="font-bold">Back to Home</button>
         </Link>
       </section>
     </main>

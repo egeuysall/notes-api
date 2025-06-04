@@ -42,11 +42,11 @@
   - [x] Return 204 No Content
 
 ### 🕒 Hour 3: Review & Refactor
-- [ ] Build the Notes CLI
-  - [ ] Flags package
-  - [ ] error handling
-- [ ] Publish via Goreleaser
-  - [ ] Configure Goreleaser
+- [x] Build the Notes CLI
+  - [x] Flags package
+  - [x] error handling
+- [x] Publish via Goreleaser
+  - [x] Configure Goreleaser
 
 ### 🕒 Hour 3: Review & Refactor
 - [x] Clean up code structure (handlers, error messages)

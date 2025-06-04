@@ -27,7 +27,6 @@ web_modules/
 
 # Build output and generated files
 build/
-dist/
 out/
 .next/
 .nuxt/

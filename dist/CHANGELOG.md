@@ -1,0 +1,17 @@
+## Changelog
+* 732aa29da4add8191929397ee1ecaf2621a8bb29 Build CLI
+* aab741ba8f9d6e83315eae86bda933e674935825 Build the basics
+* 04a99b9c712220ac78d0eefd2ba94b939dfc11e9 Clean .gitignore
+* 99dc3a659430298df0dff1078412d61b1fd7e8fc Configure docker and nginx
+* a5970e795d0db87c8fe95855f1ab09e2daf0403a Configure dockerfile
+* a946e75eee0d325d55075251a7231db26be49954 Configure project
+* 6de04001bec937463533ce2486299ab7e035810a Configure project
+* 068e6520fcbadcb298f807a4c888671c793cb3b8 Create .gitignore
+* a51e5e3ae080dc640aabb175558820d568cf7b64 Create CODE_OF_CONDUCT.md
+* f8f780de35eea1ee92890771257fca877bbd68fa Create LICENSE
+* 1b5909cb39c981a61cb1109e4881ff0b8ef7eb3c Create SECURITY.md
+* b5dfd6ece7565cd0381eea7ca9daaafeeeefef46 Finish backend
+* 960716f2f77247294cc4a6bbf629a9b093da6951 Finish frontend
+* decb5904934372e8d37bf75752d6b99560e9cb1f Modify readme and add status codes
+* 6f98f9d5ec1bf08f4babeed4f5aefee65822c027 add goreleaser config
+* 9d45cd01d1ed0b7c48a8ee57b52189d50b4eb362 update README.md
